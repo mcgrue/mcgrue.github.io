@@ -1,0 +1,135 @@
+<span style="color: silver">Heavily altered version of a page originally found at http://www.ou.edu/oupd/bac.htm.</span>
+<br />
+<br />
+
+<SCRIPT LANGUAGE="JavaScript">
+<!--
+function update()
+    {
+    with (document.forms[0])
+        {
+        drinks=numDrinks.selectedIndex+1;
+        ozbase=base.options[base.selectedIndex].value;
+        drinkTime=time.options[time.selectedIndex].value;
+        weightList=weight.options[weight.selectedIndex].value;
+        }
+    oz=(ozbase*drinks-.5*drinkTime);
+    if (oz<.75) i=0;
+    else if (oz<1.25) i=2;
+    else if (oz<1.75) i=4;
+    else if (oz<2.25) i=6;
+    else if (oz<2.75) i=8;
+    else if (oz<3.25) i=10;
+    else if (oz<3.75) i=12;
+    else if (oz<4.25) i=14;
+    else if (oz<4.75) i=16;
+    else i=18;
+    j=i+2;
+    bac=weightList.substring(i,j);
+    document.forms[0].result.value="." +bac;
+    if(bac<5) imp="Possible impairment";
+    else if (bac<8) imp="Some impairment";
+    else if (bac<10) imp="Definite impairment, illegal in ALL* states";
+        else if (bac<25) imp="Obvious Impairment, illegal in ALL states";
+    else imp="Illegal everywhere; may need medical attention";
+    document.forms[0].impair.value=imp;
+    }
+//-->
+</SCRIPT>
+</HEAD>
+
+<FORM NAME="theform">
+<font face="Arial" color="#6B94C6" size="2"><B>
+1. NUMBER OF DRINKS: <BR>
+
+</B>
+<SELECT NAME="numDrinks" SIZE=1 onChange="update()" onKeyUp="update()" class="MyBlue">
+<OPTION VALUE=1>1
+<OPTION VALUE=2>2
+<OPTION VALUE=3>3
+<OPTION VALUE=4>4
+<OPTION VALUE=5>5
+<OPTION VALUE=6>6
+<OPTION VALUE=7>7
+<OPTION VALUE=8>8
+<OPTION VALUE=9>9
+<OPTION VALUE=10>10
+<OPTION VALUE=10.67>10.67
+<OPTION VALUE=11>11
+<OPTION VALUE=12>12
+<OPTION VALUE=13>13
+<OPTION VALUE=14>14
+</SELECT>
+<BR><br>
+<B>
+2. WHAT ARE YOU DRINKING?<BR>
+</B>
+<SELECT NAME="base" SIZE=1 onChange="update()" onKeyUp="update()" class="MyBlue">
+
+<OPTION VALUE=".47">Newcastle Brown - 12oz 4.7%alc/vol
+
+<OPTION VALUE=".28">Reduced alc. Beer 12oz
+<OPTION VALUE=".5">Light Beer 12oz
+<OPTION VALUE=".241">Light Canadian Beer - 12oz 2.41%abv
+<OPTION VALUE=".241">Light Canadian Beer - 12oz 2.41%abv
+
+
+<OPTION VALUE=".52">Canadian Beer - 341ml 5%abv
+<OPTION VALUE=".76">Canadian Beer - 500ml 5%abv
+<OPTION VALUE="1.52">Canadian Beer - 500ml 10%abv
+<OPTION VALUE=".54">Imported Beer 12oz
+<OPTION VALUE=".54">Beer 12oz
+<OPTION VALUE=".71">Malt Liquor 12oz
+<OPTION VALUE=".55">Common Table Wine 5oz
+<OPTION VALUE=".6">Champagne 5oz
+<OPTION VALUE=".6">Bloody Mary
+<OPTION VALUE=".6">Gin and Tonic
+<OPTION VALUE=".6">Highball
+<OPTION VALUE=".6">Irish Coffee
+<OPTION VALUE=".6">On the Rocks
+<OPTION VALUE=".6">Pina Colada
+
+<OPTION VALUE=".6">Screw Driver
+<OPTION VALUE=".6">Tom Collins
+<OPTION VALUE=".6">Whiskey Sour
+<OPTION VALUE=".7">Margarita
+<OPTION VALUE=".7">Airline Miniature
+<OPTION VALUE=".8">Gimlet
+<OPTION VALUE=".8">Old Fashioned
+<OPTION VALUE=".9">Mint Julep
+<OPTION VALUE="1.0">Black Russian
+<OPTION VALUE="1.0">Dry Martini
+<OPTION VALUE="1.0">Fortified/Dessert Wine 5oz
+<OPTION VALUE="1.15">Manhattan
+<OPTION VALUE="1.15">Rob Roy
+<OPTION VALUE="1.2">Double On the Rocks
+<OPTION VALUE="1.2">Frozen Daiquiri
+<OPTION VALUE="1.5">Harry Buffalo
+</SELECT>
+
+<BR><BR><B>3. HOW MUCH DO YOU WEIGH?:<BR></B>
+<SELECT NAME="weight" SIZE=1 onChange="update()" onKeyUp="update()" class="MyBlue">
+<OPTION VALUE="04071114182125293236">100
+<OPTION VALUE="03060912151821242730">120
+<OPTION VALUE="03050810131518212326">140
+<OPTION VALUE="02050709111416182022">160
+<OPTION VALUE="02040608101214161820">180
+<OPTION VALUE="02040607091113141618">200
+<OPTION VALUE="02030507081011131516">220
+<OPTION VALUE="01030506080910121315">240
+</SELECT>
+<BR><br><B>4. HOW MANY HOURS HAVE YOU BEEN DRINKING?<br></B>
+<SELECT NAME="time" SIZE=1 onChange="update()" onKeyUp="update()" class="MyBlue">
+<OPTION VALUE=1>1 hour
+
+<OPTION VALUE=2>2 hours
+<OPTION VALUE=3>3 hours
+<OPTION VALUE=4>4 hours
+<OPTION VALUE=5>5 hours
+</SELECT>
+<BR><br>
+<B>
+<font color="#FF9999" size=2 class="MyPink">RESULT:<br> &nbsp; &#8212;YOUR BLOOD ALCOHOL CONTENT...<BR></font>
+<font color="#F0F3FF" size=2 class="MyBlue2">BAC %:  <INPUT TYPE="text" SIZE=3 NAME="result" class="MyBlue"> <i></font><font size=1>(THEORETICAL)</font></i>
+<br><font color="#F0F3FF" size=2 class="MyBlue2">Analysis: <INPUT TYPE="text" SIZE=49 NAME="impair" class="MyBlue">
+</form>

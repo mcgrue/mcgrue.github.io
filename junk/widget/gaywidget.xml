@@ -1,0 +1,155 @@
+<?xml version="1.0" encoding="UTF-8" ?> 
+<Module>
+  <ModulePrefs 
+  	title="this is how gay we are. (countdown to kissing)" 
+  	height="303" 
+  	width="320" 
+	author="Benjamin McGraw" 
+	author_email="ben.mcgraw@google.com"
+	/> 
+
+  <Content type="html">
+     <![CDATA[    
+     	<script src="http://sheisept.com/gaywidget/w/js/core.js" type="text/javascript"></script>
+     	<script src="http://sheisept.com/gaywidget/w/js/date.js" type="text/javascript"></script>
+     	<script src="http://sheisept.com/gaywidget/w/js/time.js" type="text/javascript"></script>
+     	<script src="http://sheisept.com/gaywidget/w/js/parser.js" type="text/javascript"></script>
+     
+     	<script>
+		Date.prototype.isAfter = function(d) {
+			return this.compareTo(d) > 0;
+		};
+		Date.prototype.isBefore = function(d) {
+			return this.compareTo(d) < 0;
+		};
+     	
+		function ajax(url, vars, callbackFunction) {
+		
+			callbackFunction('2009-06-01 09:00:00');		
+/*		
+			var request =  new XMLHttpRequest();
+			request.open("POST", url, true);
+			request.setRequestHeader("Content-Type","application/x-www-form-urlencoded");
+			request.onreadystatechange = function() {
+				var done = 4, ok = 200;
+				if (request.readyState == done && request.status == ok) {
+
+					if (request.responseText) {
+						callbackFunction(request.responseText);
+					}
+				}
+			};
+		  
+			request.send(vars);
+*/			
+		}
+     	
+     		var i = 1;
+     		var now = Date.now();
+     		var loveTime = false;
+     		var timeDifference = false;
+     		
+     		var days;
+     		var hours;
+     		var minutes;
+     		var seconds;
+     		
+     		var tick = function() {
+
+			now = Date.now();
+
+     			if(loveTime.isBefore(now)) {
+
+     				days    = '0';
+     				hours   = '0';
+     				minutes = '0';
+     				seconds = '0';
+     			} else {
+     				timeDifference = new TimeSpan(loveTime - now);
+
+     				days    = timeDifference.days;
+     				hours   = timeDifference.hours;
+     				minutes = timeDifference.minutes;
+     				seconds = timeDifference.seconds;
+     			}
+
+     			document.getElementById("d_days").innerHTML 	= _makeGayHtml(days);
+     			document.getElementById("d_hours").innerHTML 	= _makeGayHtml(hours);
+     			document.getElementById("d_minutes").innerHTML 	= _makeGayHtml(minutes);
+     			document.getElementById("d_seconds").innerHTML 	= _makeGayHtml(seconds);
+     		};
+     		
+     		function startThisBitch(responseText) {
+     		
+     			loveTime = Date.parse(responseText);
+     			
+     			setInterval( tick, 1000 );
+     		}
+     		
+     		function _makeGayHtml(str) {
+     			str = ''+str;
+     		
+     			var retval = '';
+     			for(var i=0; i<str.length; i++) {
+     				var jiggle = Math.floor( Math.random()*11 );
+
+     				retval += "<img style=' padding-left: 1px; padding-top:"+jiggle+"px; '  src='http://sheisept.com/gaywidget/w/"+str[i]+".png'>";
+     			}
+     			
+     			return retval;
+     		
+     		}
+     		
+     		ajax(
+     			"http://sheisept.com/gaywidget/time",
+     			{},
+     			startThisBitch
+     		);  	
+     	</script>
+     
+     	<style>
+		#d_days {
+			position: absolute;
+			text-align: right;
+			left: 30px;
+			top: 233px;
+			width: 51px;
+			height: 32px;
+		}
+		#d_hours  {
+			position: absolute;
+			text-align: right;
+			left: 93px;
+			top: 228px;
+			width: 47px;
+			height: 40px;
+		}
+		#d_minutes  {
+			position: absolute;
+			text-align: right;
+			left: 150px;
+			top:  232px;
+			width: 50px;
+			height: 33px;
+		}
+		#d_seconds  {
+			position: absolute;
+			text-align: right;
+			left: 221px;
+			top:  230px;
+			width: 43px;
+			height: 33px;
+		}
+     	</style>
+     
+	<div style="position: relative; background-image: url(http://sheisept.com/gaywidget/w/bg.png);  width: 320px; height: 303px;">
+		<div id="d_error"></div>
+		
+		<div id="d_days"></div>
+		<div id="d_hours"></div>
+		<div id="d_minutes"></div>
+		<div id="d_seconds"></div>
+	</div>
+     ]]>
+  </Content> 
+</Module>
